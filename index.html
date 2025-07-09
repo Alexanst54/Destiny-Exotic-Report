@@ -193,7 +193,18 @@
       });
       const label = document.createElement('label');
       label.htmlFor = mission.name;
-      label.innerHTML = `<strong>${mission.name}</strong> <span style='color:#b3b3b3;font-size:0.95em;'>(${mission.year})</span><br><span style='font-size:0.95em;'>Lieu: ${mission.location}<br>Récompense: <span style='color:#ffd700;'>${mission.reward}</span></span>`;
+      // Générer le nom de fichier à partir du nom de la mission (format kebab-case)
+      const fileName = mission.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '') + '.html';
+      const link = document.createElement('a');
+      link.href = `./missions/${fileName}`;
+      link.style.color = '#ffd700';
+      link.style.textDecoration = 'underline';
+      link.textContent = mission.name;
+      label.innerHTML = `<strong></strong> <span style='color:#b3b3b3;font-size:0.95em;'>(${mission.year})</span><br><span style='font-size:0.95em;'>Lieu: ${mission.location}<br>Récompense: <span style='color:#ffd700;'>${mission.reward}</span></span>`;
+      label.querySelector('strong').appendChild(link);
       li.appendChild(checkbox);
       li.appendChild(label);
       list.appendChild(li);
