@@ -63,3 +63,12 @@ a {
 a:hover {
   text-decoration: underline;
 }
+.mission-image {
+  width: 480px;
+  max-width: 100%;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 12px #0008;
+}
