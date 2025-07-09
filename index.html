@@ -183,16 +183,6 @@
     const list = document.getElementById('missions-list');
     missions.forEach(mission => {
       const li = document.createElement('li');
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.id = mission.name;
-      checkbox.checked = !!progress[mission.name];
-      checkbox.addEventListener('change', () => {
-        progress[mission.name] = checkbox.checked;
-        localStorage.setItem('exoMissionsProgress', JSON.stringify(progress));
-      });
-      const label = document.createElement('label');
-      label.htmlFor = mission.name;
       // Générer le nom de fichier à partir du nom de la mission (format kebab-case)
       const fileName = mission.name
         .toLowerCase()
@@ -203,10 +193,8 @@
       link.style.color = '#ffd700';
       link.style.textDecoration = 'underline';
       link.textContent = mission.name;
-      label.innerHTML = `<strong></strong> <span style='color:#b3b3b3;font-size:0.95em;'>(${mission.year})</span><br><span style='font-size:0.95em;'>Lieu: ${mission.location}<br>Récompense: <span style='color:#ffd700;'>${mission.reward}</span></span>`;
-      label.querySelector('strong').appendChild(link);
-      li.appendChild(checkbox);
-      li.appendChild(label);
+      li.innerHTML = `<strong></strong> <span style='color:#b3b3b3;font-size:0.95em;'>(${mission.year})</span><br><span style='font-size:0.95em;'>Lieu: ${mission.location}<br>Récompense: <span style='color:#ffd700;'>${mission.reward}</span></span>`;
+      li.querySelector('strong').appendChild(link);
       list.appendChild(li);
     });
   </script>
