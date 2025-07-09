@@ -1,0 +1,65 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #b3b3b3;
+}
+.status {
+  background: #ffb347;
+  color: #232526;
+  padding: 0.7rem 1.5rem;
+  border-radius: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.info {
+  color: #e0e0e0;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 400px;
+}
+#exo-missions {
+  margin-top: 2rem;
+  text-align: left;
+  width: 100%;
+  max-width: 600px;
+}
+#missions-list {
+  list-style: none;
+  padding: 0;
+}
+#missions-list li {
+  margin-bottom: 0.7rem;
+}
+label {
+  margin-left: 0.5rem;
+}
+a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  text-decoration: underline;
+}

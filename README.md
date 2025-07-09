@@ -6,13 +6,23 @@ Check back soon to discover the exotic mission tracker, inspired by Destiny Raid
 A web project to track Destiny 2 exotic mission progress, inspired by Destiny Raid Report.
 
 ## Project Status
-🚧 Project under development 🚧
+🚧 In development 🚧
 
-## Features (planned)
-- Search for a Destiny 2 player
-- View completed and uncompleted exotic missions
-- Detailed stats for each exotic mission
-- Clean and modern web interface
+## Main Features
+- Display the full list of exotic missions (name, year/season, location, reward)
+- Checkboxes to track your progress, saved locally
+- Modern and responsive interface
 
-## Roadmap
-See `roadmap.md` for detailed project steps and future features.
+## Upcoming Features
+- Filters and sorting
+- Player search (Bungie.net API)
+- Detailed stats per mission
+- Export/Import progress
+- See `roadmap.md` for more details
+
+## Patch Notes
+See `patch-notes.md` for the version history.
+
+---
+
+Project by Alexis Anstett.

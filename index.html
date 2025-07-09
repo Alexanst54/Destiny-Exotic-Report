@@ -42,6 +42,19 @@
       text-align: center;
       max-width: 400px;
     }
+    #exo-missions {
+      margin-top: 2rem;
+      text-align: left;
+      width: 100%;
+      max-width: 600px;
+    }
+    #missions-list {
+      list-style: none;
+      padding: 0;
+    }
+    #missions-list li {
+      margin-bottom: 0.7rem;
+    }
   </style>
 </head>
 <body>
@@ -49,5 +62,142 @@
   <p class="subtitle">Track your Destiny 2 exotic missions progress</p>
   <div class="status">🚧 Project under development 🚧</div>
   <p class="info">Check back soon to discover the exotic mission tracker, inspired by Destiny Raid Report!</p>
+  <div id="exo-missions">
+    <h2>Exotic Missions Progress</h2>
+    <ul id="missions-list"></ul>
+  </div>
+  <script>
+    // Liste détaillée des missions exotiques
+    const missions = [
+      {
+        name: 'The Whisper',
+        year: '2018 (Warmind)',
+        location: 'Lost Oasis, Io',
+        reward: 'Whisper of the Worm'
+      },
+      {
+        name: 'Zero Hour',
+        year: '2019 (Season of the Drifter)',
+        location: 'The Old Tower, The Last City',
+        reward: 'Outbreak Perfected'
+      },
+      {
+        name: 'The Other Side',
+        year: '2019 (Season of Opulence)',
+        location: 'Ascendant Leviathan, Leviathan',
+        reward: 'Bad Juju'
+      },
+      {
+        name: 'Harbinger',
+        year: '2021 (Season of the Hunt)',
+        location: 'Trostland, EDZ',
+        reward: 'Hawkmoon'
+      },
+      {
+        name: 'Presage',
+        year: '2021 (Season of the Chosen)',
+        location: 'The Glykon, Reef',
+        reward: 'Dead Man\'s Tale'
+      },
+      {
+        name: 'A Hollow Coronation',
+        year: '2021 (Season of the Lost)',
+        location: 'Dozmary Vault, Dreaming City',
+        reward: 'Ager\'s Scepter'
+      },
+      {
+        name: 'Parasitic Pilgrimage',
+        year: '2022 (The Witch Queen)',
+        location: 'Savathûn\'s Throne World',
+        reward: 'Parasite'
+      },
+      {
+        name: 'Vox Obscura',
+        year: '2022 (Season of the Risen)',
+        location: 'The Barrens, Mars',
+        reward: 'Dead Messenger'
+      },
+      {
+        name: 'Operation: Seraph’s Shield',
+        year: '2022 (Season of the Seraph)',
+        location: 'Seraph Station, Earth',
+        reward: 'Revision Zero'
+      },
+      {
+        name: 'What Remains',
+        year: '2023 (Lightfall)',
+        location: 'Boundless Horizon, Black Garden',
+        reward: 'Deterministic Chaos'
+      },
+      {
+        name: '//NODE.OVRD.AVALON//',
+        year: '2023 (Season of Defiance)',
+        location: 'Vex Network',
+        reward: 'Vexcalibur'
+      },
+      {
+        name: 'Starcrossed',
+        year: '2023 (Season of the Wish)',
+        location: 'Overland, Black Garden',
+        reward: 'Wish-Keeper'
+      },
+      {
+        name: 'Wild Card',
+        year: '2024 (The Final Shape)',
+        location: 'The Landing, The Pale Heart',
+        reward: 'Still Hunt'
+      },
+      {
+        name: 'Hope',
+        year: '2024 (The Final Shape)',
+        location: 'The Sacrarium, The Pale Heart',
+        reward: 'Ergo Sum'
+      },
+      {
+        name: 'Dual Destiny',
+        year: '2024 (The Final Shape)',
+        location: 'The Refraction, The Pale Heart',
+        reward: 'Relativism (Hunter), Solipsism (Warlock), Stoicism (Titan)'
+      },
+      {
+        name: 'Encore',
+        year: '2024 (Episode: Echoes)',
+        location: 'Arcadian Valley, Nessus',
+        reward: 'Choir of One'
+      },
+      {
+        name: 'Kell’s Fall',
+        year: '2024 (Episode: Revenant)',
+        location: 'Revenant Fortress, Reef',
+        reward: 'Slayer\'s Fang'
+      },
+      {
+        name: 'Exotic Mission "Derealize"',
+        year: '2025 (Episode: Heresy)',
+        location: 'Dreadnaught, Saturn',
+        reward: 'Barrow-Dyad'
+      }
+    ];
+    // Load progress from localStorage
+    const progress = JSON.parse(localStorage.getItem('exoMissionsProgress') || '{}');
+    const list = document.getElementById('missions-list');
+    missions.forEach(mission => {
+      const li = document.createElement('li');
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = mission.name;
+      checkbox.checked = !!progress[mission.name];
+      checkbox.addEventListener('change', () => {
+        progress[mission.name] = checkbox.checked;
+        localStorage.setItem('exoMissionsProgress', JSON.stringify(progress));
+      });
+      const label = document.createElement('label');
+      label.htmlFor = mission.name;
+      label.innerHTML = `<strong>${mission.name}</strong> <span style='color:#b3b3b3;font-size:0.95em;'>(${mission.year})</span><br><span style='font-size:0.95em;'>Lieu: ${mission.location}<br>Récompense: <span style='color:#ffd700;'>${mission.reward}</span></span>`;
+      li.appendChild(checkbox);
+      li.appendChild(label);
+      list.appendChild(li);
+    });
+  </script>
 </body>
 </html>
