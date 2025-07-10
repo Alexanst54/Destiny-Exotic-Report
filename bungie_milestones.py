@@ -1,7 +1,7 @@
 import requests
 
-# Remplace ceci par ta clé API Bungie
-API_KEY = "3c3ed7a12e854f77a4c1b903f90af266"
+# clé API Bungie
+API_KEY = ""
 
 # Headers pour l'authentification
 HEADERS = {
